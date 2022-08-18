@@ -1,0 +1,17 @@
+{% extends 'blog/base.html' %}
+{% load crispy_forms_tags  %}
+
+{% block content %}
+<div class="col-sm-10">
+    <h3 class="my-5">Daashboard/ Update Post</h3>
+    <!-- messages  -->
+    <form action="" method="POST" novalidate>
+        {% csrf_token %}
+        {{ form|crispy }}
+        <input type="submit" value='Add' class='btn btn-primary my-3'>
+        <a href="{% url 'dashboard' %}" class='btn btn-danger'>Cancel</a>
+    </form>
+    
+</div>
+
+{% endblock content %}

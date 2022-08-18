@@ -202,7 +202,7 @@ CrudCBV
 CrudFBS
 miniblog
 MiniBlogCBV_not done
-MniblogFBV
+# MniblogFBV
 notes.txt
 owngellery
 pagecounter
@@ -211,3 +211,4 @@ requirements.txt
 text.txt
 youtube_not_done
 New.txt
+py_jango_work
