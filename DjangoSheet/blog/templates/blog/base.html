@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    {% if title %}
+    <title>Django Blog - {{ title }}</title>
+    {% else %}
+    <title>Django Blog</title>
+    {% endif %}
+
+    <link rel="stylesheet" href="{% static 'blog/css/bootstrap.css' %}">
+    <!-- custom css.  -->
+    <link rel="stylesheet" href="{% static 'blog/css/main.css' %}">
+    <!-- <link rel="stylesheet" href="{% static 'enroll/css/cs.css' %}"> -->
+
+</head>
+
+<body>
+    <!-- navigation bar -->
+    {% include "blog/navbar.html" %}
+
+    <!-- Content Block Section. -->
+    <main role="main" class="container">
+        <div class="row">
+            <div class="col-sm-8">
+                <!-- Alert messages are here.  -->
+
+                {% if messages %}
+                {% for message in messages %}
+                <!-- <div class="alert alert-{{ message.tags }}"> -->
+                <!-- {{ message }} -->
+                <!-- my creativity. -->
+                <div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
+                    <strong>{{ message }}</strong>
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+            </div>
+            {% endfor %}
+            {% endif %}
+            <!-- main content are here.  -->
+            {% block content %}
+            {% endblock content %}
+        </div>
+        <div class="col-sm-4">
+            <div class="content-section">
+                <h3>Our Sidebar</h3>
+                <p class="text-muted">You can put any information here you'd like.</p>
+                <ul class="list-group">
+                    <li class="list-group-item list-group-item-light">Latest Post</li>
+                    <li class="list-group-item list-group-item-light">Announcements</li>
+                    <li class="list-group-item list-group-item-light">Calendars</li>
+                    <li class="list-group-item list-group-item-light">etc</li>
+                </ul>
+            </div>
+        </div>
+        </div>
+        </div>
+
+
+
+        <!-- javascript.  -->
+        <script src="{% static 'blog/js/bootstrap.js' %}"></script>
+        <script src="{% static 'blog/js/popper.js' %}"></script>
+</body>
+
+
+</html>
